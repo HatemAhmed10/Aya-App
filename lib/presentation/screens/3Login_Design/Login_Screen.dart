@@ -1,6 +1,6 @@
 import 'package:bus/business_logic/3Login_Cubit/Login_cubit.dart';
 import 'package:bus/business_logic/3Login_Cubit/Login_state.dart';
-import 'package:bus/presentation/screens/1New_Design/Page1_Screen.dart';
+import 'package:bus/presentation/screens/1Home_Design/Home_Screen.dart';
 import 'package:bus/presentation/screens/2Register_Design/RegisterScreen.dart';
 import 'package:bus/shared/network/local/cache_helper.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -32,7 +32,7 @@ class SocialLoginScreen extends StatelessWidget {
             ).then((value) {
               navigateAndFinish(
                 context,
-                Page1_Screen(),
+                Home_Screen(),
               );
             });
           }

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:bus/presentation/screens/2Register_Design/RegisterScreen.dart';
 import 'package:bus/presentation/screens/3Login_Design/Login_Screen.dart';
 import 'package:flutter/material.dart';
-import 'package:bus/presentation/screens/1New_Design/Page1_Screen.dart';
+import 'package:bus/presentation/screens/1Home_Design/Home_Screen.dart';
 import '../../../shared/components/components.dart';
 import '../../../shared/styles/assets_manager.dart';
 import '../../../shared/styles/colors.dart';

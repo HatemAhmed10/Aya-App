@@ -44,7 +44,6 @@ dependencies:
   fluttertoast: 
   intl: 
   shared_preferences: 
-
   
   #firebase
   firebase_core: ^2.4.1

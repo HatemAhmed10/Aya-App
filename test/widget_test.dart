@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:bus/presentation/screens/0Splash_Screen/splash_view.dart';
-import 'package:bus/presentation/screens/1New_Design/Page1_Screen.dart';
+import 'package:bus/presentation/screens/1Home_Design/Home_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -17,8 +17,9 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp(
       startWidget: SplashView(
-        startWidget: Page1_Screen(),
+        startWidget: Home_Screen(),
       ),
+      isDark: false,
     ));
 
     // Verify that our counter starts at 0.
