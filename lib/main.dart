@@ -60,10 +60,10 @@ class MyApp extends StatelessWidget {
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-          // home: SplashView(
-          //   startWidget: startWidget,
-          // ),
-          home: Home_Screen(),
+          home: SplashView(
+            startWidget: startWidget,
+          ),
+          // home: Home_Screen(),
         );
       }),
     );
