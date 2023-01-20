@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:bus/presentation/screens/2Register_Design/RegisterScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:bus/presentation/screens/1New_Design/Page1_Screen.dart';
 import '../../../shared/components/components.dart';
@@ -20,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
   }
 
   _goNext() {
-    navigateAndFinish(context, Page1_Screen());
+    navigateAndFinish(context, SocialRegisterScreen());
   }
 
   @override

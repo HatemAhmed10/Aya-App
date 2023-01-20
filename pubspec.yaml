@@ -44,6 +44,12 @@ dependencies:
   fluttertoast: 
   intl: 
 
+  
+  #firebase
+  firebase_core: ^2.4.1
+  firebase_auth: ^4.2.5
+  cloud_firestore: ^4.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
