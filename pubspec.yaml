@@ -43,6 +43,7 @@ dependencies:
   hexcolor: 
   fluttertoast: 
   intl: 
+  shared_preferences: 
 
   
   #firebase

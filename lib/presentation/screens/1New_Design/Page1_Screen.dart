@@ -1,5 +1,8 @@
 import 'package:bus/business_logic/1New_Cubit/New_Cubit.dart';
 import 'package:bus/business_logic/1New_Cubit/New_State.dart';
+import 'package:bus/presentation/screens/0Splash_Screen/splash_view.dart';
+import 'package:bus/presentation/screens/3Login_Design/Login_Screen.dart';
+import 'package:bus/shared/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bus/shared/components/components.dart';
@@ -29,10 +32,19 @@ class _Page1_ScreenState extends State<Page1_Screen> {
             body: Center(
               child: Column(
                 children: [
-                  Text("Start Page in Project"),
+                  Text("Log Out"),
                   defaultSizedBox(Height: 20),
                   defaultButton2(
-                      function: (() {}),
+                      function: (() {
+                        CacheHelper.removeData(
+                          key: 'uId',
+                        ).then((value) {
+                          navigateAndFinish(
+                            context,
+                            SocialLoginScreen(),
+                          );
+                        });
+                      }),
                       widget: defaultText(text: " Fundamentals Design Screen1"),
                       colorButton: Colors.blue),
                   defaultSizedBox(Height: 30),
