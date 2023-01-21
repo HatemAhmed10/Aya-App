@@ -1,6 +1,6 @@
 import 'package:bus/business_logic/1Home_Cubit/Home_Cubit.dart';
 import 'package:bus/business_logic/1Home_Cubit/Home_State.dart';
-import 'package:bus/presentation/screens/1Home_Design/Home_Screen.dart';
+import 'package:bus/presentation/screens/4Post_Design/1Home_Design/Home_Screen.dart';
 import 'package:bus/presentation/screens/3Login_Design/Login_Screen.dart';
 import 'package:bus/shared/network/local/cache_helper.dart';
 import 'package:bus/shared/styles/themes.dart';
@@ -60,10 +60,10 @@ class MyApp extends StatelessWidget {
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-          home: SplashView(
-            startWidget: startWidget,
-          ),
-          // home: Home_Screen(),
+          // home: SplashView(
+          //   startWidget: startWidget,
+          // ),
+          home: Home_Screen(),
         );
       }),
     );

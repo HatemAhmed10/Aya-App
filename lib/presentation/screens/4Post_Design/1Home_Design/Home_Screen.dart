@@ -2,6 +2,7 @@ import 'package:bus/business_logic/1Home_Cubit/Home_Cubit.dart';
 import 'package:bus/business_logic/1Home_Cubit/Home_State.dart';
 import 'package:bus/main.dart';
 import 'package:bus/presentation/screens/3Login_Design/Login_Screen.dart';
+import 'package:bus/presentation/screens/4Post_Design/2AddPost_Design/AddPost_Screen.dart';
 import 'package:bus/shared/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,38 +53,12 @@ class _Home_ScreenState extends State<Home_Screen> {
                     icon: Icon(Icons.logout)),
               ],
             ),
-            body: Center(
-              child: Column(
-                children: [
-                  Text("Log Out"),
-                  defaultSizedBox(Height: 20),
-                  defaultButton2(
-                      function: (() {
-                        CacheHelper.removeData(
-                          key: 'uId',
-                        ).then((value) {
-                          navigateAndFinish(
-                            context,
-                            SocialLoginScreen(),
-                          );
-                        });
-                      }),
-                      widget: defaultText(text: "Log Out"),
-                      colorButton: Colors.blue),
-                  defaultSizedBox(Height: 30),
-                  defaultButton2(
-                      function: (() {}),
-                      widget: defaultText(text: " Advanced Design Screen1"),
-                      colorButton: Colors.blue),
-                  defaultText(text: cubit.isDark.toString()),
-                  defaultButton2(
-                      function: (() {
-                        cubit.changeAppMode(fromShared: true);
-                      }),
-                      widget: defaultText(text: "IsDark")),
-                ],
-              ),
-            ),
+            body: Center(),
+            floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                  navigateTo(context, AddPost_Screen());
+                },
+                child: Icon(Icons.add)),
           );
         },
       ),
