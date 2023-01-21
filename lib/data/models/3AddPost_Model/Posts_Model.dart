@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class PostModel {
   String? Id;
   String? title;
   String? subTitle;
   String? desc;
-  DateTime? date;
+  Timestamp? date;
   String? imageUrl;
 
   PostModel({

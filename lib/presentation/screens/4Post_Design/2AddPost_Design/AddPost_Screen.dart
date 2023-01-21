@@ -2,6 +2,7 @@ import 'package:bus/business_logic/1Home_Cubit/Home_Cubit.dart';
 import 'package:bus/business_logic/1Home_Cubit/Home_State.dart';
 import 'package:bus/shared/components/components.dart';
 import 'package:bus/shared/styles/colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -27,6 +28,8 @@ class _AddPost_ScreenState extends State<AddPost_Screen> {
     var formatterDate = DateFormat('dd/MM/yy');
     String actualDate = formatterDate.format(now);
     Postdate.text = actualDate.toString();
+    Timestamp nowDate = Timestamp.now();
+
     return BlocProvider(
         create: (context) => HomeCubit(),
         child: BlocBuilder<HomeCubit, HomeStates>(builder: (context, state) {
@@ -79,7 +82,7 @@ class _AddPost_ScreenState extends State<AddPost_Screen> {
                           Title: PostTitle.text,
                           SubTitle: PostSubTitle.text,
                           Desc: Postdesc.text,
-                          Date: now);
+                          Date: nowDate);
                       print(PostTitle.toString());
                     },
                     colorButton: ColorManager.primary,

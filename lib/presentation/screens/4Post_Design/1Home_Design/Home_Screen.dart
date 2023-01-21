@@ -20,7 +20,7 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     bool dark = false;
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit()..getPosts(),
       child: BlocBuilder<HomeCubit, HomeStates>(
         builder: (context, state) {
           HomeCubit cubit = HomeCubit.get(context);
@@ -53,7 +53,13 @@ class _Home_ScreenState extends State<Home_Screen> {
                     icon: Icon(Icons.logout)),
               ],
             ),
-            body: Center(),
+            body: Center(
+                child: ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return Text(cubit.ListOfPosts[index].title.toString());
+              },
+              itemCount: cubit.ListOfPosts.length,
+            )),
             floatingActionButton: FloatingActionButton(
                 onPressed: () {
                   navigateTo(context, AddPost_Screen());

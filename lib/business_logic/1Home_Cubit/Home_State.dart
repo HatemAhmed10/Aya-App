@@ -11,3 +11,5 @@ class AddPostErrorState extends HomeStates {
 
   AddPostErrorState(this.error);
 }
+
+class GetPostsSuccessState extends HomeStates {}

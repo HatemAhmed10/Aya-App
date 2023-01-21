@@ -11,6 +11,30 @@ class HomeCubit extends Cubit<HomeStates> {
   HomeCubit() : super(NewInitialState());
 
   static HomeCubit get(context) => BlocProvider.of(context);
+
+/////////////////////////////////////////////////////////////////////////
+  ///  Get Data Of Bus
+  List<PostModel> ListOfPosts = [];
+  void getPosts() {
+    print("Dad66");
+    FirebaseFirestore.instance
+        .collection('DataBase')
+        .doc("Table")
+        .collection('Posts')
+        // .where("dateTime", isEqualTo: DataTime)
+        // .orderBy('dateTime')
+        .snapshots()
+        .listen((event) {
+      ListOfPosts = [];
+      event.docs.forEach((element) {
+        ListOfPosts.add(PostModel.fromJson(element.data()));
+      });
+      print(ListOfPosts[0].desc.toString());
+
+      emit(GetPostsSuccessState());
+    });
+  }
+
 ///////////////////////////////////////////////////////////////////////
   /// post Data
   ///
@@ -18,7 +42,7 @@ class HomeCubit extends Cubit<HomeStates> {
     required String Title,
     required String SubTitle,
     required String Desc,
-    required DateTime Date,
+    required Timestamp Date,
   }) {
     var FId = FirebaseFirestore.instance
         .collection('DataBase')
