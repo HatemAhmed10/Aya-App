@@ -1,5 +1,6 @@
 import 'package:bus/business_logic/1Home_Cubit/Home_Cubit.dart';
 import 'package:bus/business_logic/1Home_Cubit/Home_State.dart';
+import 'package:bus/presentation/screens/4Post_Design/1Home_Design/Home_Screen.dart';
 import 'package:bus/shared/components/components.dart';
 import 'package:bus/shared/styles/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -37,57 +38,67 @@ class _AddPost_ScreenState extends State<AddPost_Screen> {
           return Scaffold(
             body: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: defaultFormField(
-                      controller: PostTitle,
-                      type: TextInputType.text,
-                      validate: () {},
-                      label: "العنوان",
-                      prefix: Icons.title),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: defaultFormField(
+                        controller: PostTitle,
+                        type: TextInputType.text,
+                        validate: () {},
+                        label: "العنوان",
+                        prefix: Icons.title),
+                  ),
                 ),
                 defaultSizedBox(Height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: defaultFormField(
-                      controller: PostSubTitle,
-                      type: TextInputType.text,
-                      validate: () {},
-                      label: "العنوان الاكبر",
-                      prefix: Icons.title),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: defaultFormField(
+                        controller: PostSubTitle,
+                        type: TextInputType.text,
+                        validate: () {},
+                        label: "العنوان الاكبر",
+                        prefix: Icons.title),
+                  ),
                 ),
                 defaultSizedBox(Height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: defaultFormField(
-                      controller: Postdesc,
-                      type: TextInputType.text,
-                      validate: () {},
-                      label: "الوصف",
-                      prefix: Icons.title),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: defaultFormField(
+                        controller: Postdesc,
+                        type: TextInputType.text,
+                        validate: () {},
+                        label: "الوصف",
+                        prefix: Icons.title),
+                  ),
                 ),
                 defaultSizedBox(Height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: defaultFormField(
-                      controller: Postdate,
-                      type: TextInputType.datetime,
-                      validate: () {},
-                      label: "التاريخ",
-                      prefix: Icons.dataset),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: defaultFormField(
+                        controller: Postdate,
+                        type: TextInputType.datetime,
+                        validate: () {},
+                        label: "التاريخ",
+                        prefix: Icons.dataset),
+                  ),
                 ),
-                defaultButton2(
-                    function: () {
-                      cubit.AddPost(
-                          Title: PostTitle.text,
-                          SubTitle: PostSubTitle.text,
-                          Desc: Postdesc.text,
-                          Date: nowDate);
-                      print(PostTitle.toString());
-                    },
-                    colorButton: ColorManager.primary,
-                    colorText: Colors.red,
-                    widget: defaultText(text: "اضافه بوست ")),
+                Expanded(
+                  child: defaultButton2(
+                      function: () {
+                        cubit.AddPost(
+                            Title: PostTitle.text,
+                            SubTitle: PostSubTitle.text,
+                            Desc: Postdesc.text,
+                            Date: nowDate);
+                        navigateAndFinish(context, Home_Screen());
+                      },
+                      colorButton: ColorManager.primary,
+                      colorText: Colors.red,
+                      widget: defaultText(text: "اضافه بوست ")),
+                ),
               ],
             ),
           );

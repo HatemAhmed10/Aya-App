@@ -1,16 +1,39 @@
 import 'dart:convert';
+import 'dart:ui';
 import 'package:bus/business_logic/1Home_Cubit/Home_State.dart';
 import 'package:bus/data/models/3AddPost_Model/Posts_Model.dart';
 import 'package:bus/main.dart';
 import 'package:bus/shared/components/components.dart';
 import 'package:bus/shared/network/local/cache_helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeCubit extends Cubit<HomeStates> {
   HomeCubit() : super(NewInitialState());
 
   static HomeCubit get(context) => BlocProvider.of(context);
+  Color love = Colors.black;
+  void change_love_color() {
+    if (love == Colors.black) {
+      love = Colors.red;
+      emit(AppChangeLoveColorState());
+    } else {
+      love = Colors.black;
+      emit(AppChangeLoveColorState());
+    }
+  }
+
+  bool read_more = false;
+  void change_read_more() {
+    if (read_more == false) {
+      read_more = true;
+      emit(AppChangeReadMoreState());
+    } else {
+      read_more = false;
+      emit(AppChangeReadMoreState());
+    }
+  }
 
 /////////////////////////////////////////////////////////////////////////
   ///  Get Data Of Bus

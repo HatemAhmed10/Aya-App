@@ -27,7 +27,6 @@ class _Home_ScreenState extends State<Home_Screen> {
           if (cubit.isDark != null) {
             dark = cubit.isDark!;
           }
-
           return Scaffold(
             appBar: AppBar(
               title: const Text("Home"),
@@ -56,7 +55,132 @@ class _Home_ScreenState extends State<Home_Screen> {
             body: Center(
                 child: ListView.builder(
               itemBuilder: (BuildContext context, int index) {
-                return Text(cubit.ListOfPosts[index].title.toString());
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: defaultContainer(
+                      boxDecoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      Widget: Card(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ListTile(
+                              title: Text(
+                                cubit.ListOfPosts[index].title.toString(),
+                                textAlign: TextAlign.right,
+                              ),
+                              subtitle: Text(
+                                cubit.ListOfPosts[index].subTitle.toString(),
+                                textAlign: TextAlign.right,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: TextButton(
+                                onPressed: () {
+                                  cubit.change_read_more();
+                                  print(cubit.read_more.toString());
+                                },
+                                child: cubit.read_more
+                                    ? Container(
+                                        child: TextButton(
+                                          onPressed: () {
+                                            cubit.change_read_more();
+                                          },
+                                          child: Text(
+                                            cubit.ListOfPosts[index].desc
+                                                .toString(),
+                                            maxLines: cubit.read_more ? 500 : 1,
+                                            overflow: TextOverflow.fade,
+                                            textAlign: TextAlign.right,
+                                          ),
+                                        ),
+                                      )
+                                    : Container(
+                                        width: double.infinity,
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              child: TextButton(
+                                                  onPressed: () {
+                                                    cubit.change_read_more();
+                                                  },
+                                                  child: Text(
+                                                    "المزيد",
+                                                    style: TextStyle(
+                                                        fontSize: 10,
+                                                        color: Colors.grey),
+                                                  )),
+                                            ),
+                                            Expanded(
+                                              flex: 4,
+                                              child: Text(
+                                                cubit.ListOfPosts[index].desc
+                                                    .toString(),
+                                                maxLines:
+                                                    cubit.read_more ? 500 : 1,
+                                                overflow: TextOverflow.fade,
+                                                textAlign: TextAlign.right,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                              ),
+                            ),
+                            defaultSizedBox(Height: 10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Expanded(
+                                  child: defaultContainer(
+                                    Widget: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "12",
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        IconButton(
+                                            onPressed: () {
+                                              cubit.change_love_color();
+                                            },
+                                            color: cubit.love,
+                                            icon: Icon(Icons.favorite)),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                defaultSizedBox(Width: 10),
+                                Expanded(
+                                  child: defaultContainer(
+                                    Widget: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "34",
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.comment)),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
               },
               itemCount: cubit.ListOfPosts.length,
             )),

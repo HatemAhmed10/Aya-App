@@ -13,3 +13,7 @@ class AddPostErrorState extends HomeStates {
 }
 
 class GetPostsSuccessState extends HomeStates {}
+
+class AppChangeReadMoreState extends HomeStates {}
+
+class AppChangeLoveColorState extends HomeStates {}
